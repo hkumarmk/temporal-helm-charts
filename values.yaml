@@ -5,6 +5,10 @@ fullnameOverride: ""
 # (eg. disable helm hook delete policy)
 debug: false
 
+serviceAccount:
+  create: true
+  #name:
+
 server:
   enabled: true
   image:
@@ -69,6 +73,18 @@ server:
 
     # IMPORTANT: This value cannot be changed, once it's set.
     numHistoryShards: 512
+
+    archive:
+      enabled: false
+      enableRead: true
+      provider:
+      # GCloud details is used to integrate 
+      gcloud:
+        # GCP Project ID should be provided
+        project_id:
+
+        # GCP Service Account
+        service_account:
 
     persistence:
       default:

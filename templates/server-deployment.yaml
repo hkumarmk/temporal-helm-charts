@@ -41,6 +41,7 @@ spec:
         {{- toYaml . | nindent 8 }}
         {{- end }}
     spec:
+      serviceAccountName: {{ template "temporal.serviceAccountName" . }}
       {{- if or $.Values.cassandra.enabled (or $.Values.elasticsearch.enabled $.Values.elasticsearch.external)}}
       initContainers:
         {{- if $.Values.cassandra.enabled }}

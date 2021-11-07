@@ -168,7 +168,27 @@ data:
       toDC: ""
 
     archival:
-      status: "disabled"
+      history:
+        state: "enabled"
+        enableRead: true
+        provider:
+          gstorage:
+            credentialsPath: ""
+      visibility:
+        state: "enabled"
+        enableRead: true
+        provider:
+          gstorage:
+            credentialsPath: ""
+
+    namespaceDefaults:
+      archival:
+        history:
+          state: "enabled"
+          URI: "gs://maira-test-harish-temporal/temporal_archival/history"
+        visibility:
+          state: "enabled"
+          URI: "gs://maira-test-harish-temporal/temporal_archival/visibility"
 
     publicClient:
       hostPort: "{{ include "temporal.componentname" (list . "frontend") }}:{{ .Values.server.frontend.service.port }}"
